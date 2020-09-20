@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>{{ title }} - Microblog</title>
+    </head>
+    <body>
+        <h1>Hello</h1> Day:
+        {% for day in weekdays['weekdays'] %}
+        <div><p> Day: {{ day }} </p></div>
+        {% endfor %}
+        <br>
+        Schemes:
+        {% for scheme in schemes%}
+        <div><p> {{scheme}} </p></div>
+        {%endfor%}
+    </body>
+</html>
