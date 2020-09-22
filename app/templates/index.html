@@ -3,10 +3,21 @@
         <title>{{ title }} - Microblog</title>
     </head>
     <body>
-        <h1>Hello</h1> Day:
-        {% for day in weekdays['weekdays'] %}
-        <div><p> Day: {{ day }} </p></div>
+        <h1>Hello</h1> <br>
+        <table style="width:100%">
+        <tr>
+            {% for day, schemes in weekdays['weekdays'].week.items() %}
+            <th>{{ day.title() }}</th>
+            {% endfor %}
+        </tr>
+            {% for day, schemes in weekdays['weekdays'].week.items() %}
+        <tr>
+                {% for i in range(schemes|length) %}
+                <td>{{ schemes[i] }} </td>
+        </tr>
         {% endfor %}
+        {% endfor %}
+        </table>
         <br>
         Schemes:
         {% for scheme in schemes%}

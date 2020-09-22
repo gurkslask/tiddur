@@ -7,7 +7,7 @@ class Week:
     week Schemes within days
     """
     def __init__(self):
-        self.week = {"monday": [],
+        self.week = {"monday": [Scheme("Work2", 10, 00, 11, 00)],
                      "tuesday": [],
                      "wednesday": [],
                      "thursday": [],
@@ -62,5 +62,5 @@ class Week:
         return str(self.week)
 
     def __iter__(self):
-        for day in self.week:
-            yield day
+        for day, scheme in self.week.items():
+            yield (day.title(), scheme)

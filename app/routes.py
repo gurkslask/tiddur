@@ -5,9 +5,16 @@ from app import app, W, SchemeList
 @app.route('/')
 @app.route('/index')
 def index():
-    # user = {'username': app.Scheme("name", 7, 0, 15, 0)}
     weekdays = {'weekdays': W}
-    for day in weekdays['weekdays']:
-        print(type(day))
     return render_template('index.html', title='Home', weekdays=weekdays,
                            schemes=SchemeList)
+
+
+@app.route('/schemes/<scheme>')
+def scheme(scheme):
+    for ischeme in SchemeList:
+        if scheme == ischeme.name:
+            return str(ischeme)
+    return str(SchemeList)
+
+
